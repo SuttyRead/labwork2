@@ -1,14 +1,32 @@
 package com.ua.sutty.lab5;
 
-import java.util.ArrayList;
-import java.util.List;
+import interfaces.task2.FractionNumber;
+import interfaces.task5.ArrayCollection;
+import interfaces.task2.FractionNumberOperation;
 
 public class Main {
 
     public static void main(String[] args) {
 
+        ArrayCollection<FractionNumber> arrayCollection = new ArrayCollectionImpl<>();
+        FractionNumber fractionNumber1 = new FractionNumberImpl(10, 2);
+        FractionNumber fractionNumber2 = new FractionNumberImpl(20, 2);
+        FractionNumber fractionNumber3 = new FractionNumberImpl(30, 2);
+        FractionNumber fractionNumber4 = new FractionNumberImpl(40, 2);
+        arrayCollection.add(fractionNumber1);
+        arrayCollection.add(fractionNumber2);
+        arrayCollection.add(fractionNumber3);
+        arrayCollection.add(fractionNumber4);
 
-        List<Integer> integerList = new ArrayList<>();
+        FractionNumber fnr = new FractionNumberImpl(0, 1);
+        FractionNumberOperation fno = new FractionalNumberOperationImpl();
+
+        for (FractionNumber fractionNumber : arrayCollection) {
+            fnr = fno.add(fnr, fractionNumber);
+        }
+
+        System.out.println(fnr.value());
+
     }
 
 }

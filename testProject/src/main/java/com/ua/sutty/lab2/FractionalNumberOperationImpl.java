@@ -9,30 +9,35 @@ public class FractionalNumberOperationImpl implements FractionNumberOperation {
     }
 
     @Override
-    public FractionNumber add(FractionNumber fractionNumber, FractionNumber fractionNumber1) {
-        int dividend = fractionNumber.getDividend() * fractionNumber1.getDivisor() + fractionNumber1.getDividend() * fractionNumber.getDivisor();
-        int divisor = fractionNumber.getDivisor() * fractionNumber1.getDivisor();
+    public FractionNumber add(FractionNumber fn, FractionNumber fn1) {
+        int dividend = fn.getDividend() * fn1.getDivisor() +
+                fn1.getDividend() * fn.getDivisor();
+        int divisor = fn.getDivisor() * fn1.getDivisor();
         return new FractionNumberImpl(dividend, divisor);
     }
 
     @Override
-    public FractionNumber sub(FractionNumber fractionNumber, FractionNumber fractionNumber1) {
-        int dividend = fractionNumber.getDividend() * fractionNumber1.getDivisor() - fractionNumber1.getDividend() * fractionNumber.getDivisor();
-        int divisor = fractionNumber.getDivisor() * fractionNumber1.getDivisor();
+    public FractionNumber sub(FractionNumber fn, FractionNumber fn1) {
+        int dividend = fn.getDividend() * fn1.getDivisor() -
+                fn1.getDividend() * fn.getDivisor();
+        int divisor = fn.getDivisor() * fn1.getDivisor();
         return new FractionNumberImpl(dividend, divisor);
     }
 
     @Override
-    public FractionNumber mul(FractionNumber fractionNumber, FractionNumber fractionNumber1) {
-        int dividend = fractionNumber.getDividend() * fractionNumber1.getDividend();
-        int divisor = fractionNumber.getDivisor() * fractionNumber1.getDivisor();
+    public FractionNumber mul(FractionNumber fn, FractionNumber fn1) {
+        int dividend = fn.getDividend() * fn1.getDividend();
+        int divisor = fn.getDivisor() * fn1.getDivisor();
         return new FractionNumberImpl(dividend, divisor);
     }
 
     @Override
-    public FractionNumber div(FractionNumber fractionNumber, FractionNumber fractionNumber1) {
-        int dividend = fractionNumber.getDividend() * fractionNumber1.getDivisor();
-        int divisor = fractionNumber.getDivisor() * fractionNumber1.getDividend();
+    public FractionNumber div(FractionNumber fn, FractionNumber fn1) {
+        if (fn1.getDividend() == 0) {
+            throw new ArithmeticException("It's impossible to divide by zero");
+        }
+        int dividend = fn.getDividend() * fn1.getDivisor();
+        int divisor = fn.getDivisor() * fn1.getDividend();
         return new FractionNumberImpl(dividend, divisor);
     }
 }

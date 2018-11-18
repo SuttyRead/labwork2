@@ -1,4 +1,4 @@
-package com.ua.sutty.lab2;
+package com.ua.sutty.lab5;
 
 import interfaces.task2.FractionNumber;
 
@@ -12,9 +12,6 @@ public class FractionNumberImpl implements FractionNumber {
     }
 
     public FractionNumberImpl(int dividend, int divisor) {
-        if (divisor == 0) {
-            throw new IllegalArgumentException("It's impossible to divide by zero");
-        }
         this.dividend = dividend;
         this.divisor = divisor;
     }
@@ -31,9 +28,6 @@ public class FractionNumberImpl implements FractionNumber {
 
     @Override
     public void setDivisor(int i) {
-        if (i == 0) {
-            throw new IllegalArgumentException("It's impossible to divide by zero");
-        }
         this.divisor = i;
     }
 
@@ -44,7 +38,7 @@ public class FractionNumberImpl implements FractionNumber {
 
     @Override
     public double value() {
-        return (double) this.dividend / (double) this.divisor;
+        return (double) (dividend) / (double) divisor;
     }
 
     @Override

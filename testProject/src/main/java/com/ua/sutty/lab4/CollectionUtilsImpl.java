@@ -10,7 +10,11 @@ public class CollectionUtilsImpl implements CollectionUtils {
     }
 
     @Override
-    public List<Integer> union(Collection<Integer> collection, Collection<Integer> collection1) {
+    public List<Integer> union(Collection<Integer> collection,
+                               Collection<Integer> collection1) {
+        if (collection == null || collection1 == null) {
+            throw new NullPointerException("one of the collections is null");
+        }
         List<Integer> integerList = new ArrayList<>();
         integerList.addAll(collection);
         integerList.addAll(collection1);
@@ -18,7 +22,11 @@ public class CollectionUtilsImpl implements CollectionUtils {
     }
 
     @Override
-    public List<Integer> intersection(Collection<Integer> collection, Collection<Integer> collection1) {
+    public List<Integer> intersection(Collection<Integer> collection,
+                                      Collection<Integer> collection1) {
+        if (collection == null || collection1 == null) {
+            throw new NullPointerException("one of the collections is null");
+        }
         List<Integer> newIntegerList = new ArrayList<>();
         List<Integer> integerList1 = new ArrayList<>(collection);
         List<Integer> integerList2 = new ArrayList<>(collection1);
@@ -34,7 +42,11 @@ public class CollectionUtilsImpl implements CollectionUtils {
     }
 
     @Override
-    public Set<Integer> intersectionWithoutDuplicate(Collection<Integer> collection, Collection<Integer> collection1) {
+    public Set<Integer> intersectionWithoutDuplicate(Collection<Integer> collection,
+                                                     Collection<Integer> collection1) {
+        if (collection == null || collection1 == null) {
+            throw new NullPointerException("one of the collections is null");
+        }
         List<Integer> newIntegerList = new ArrayList<>();
         List<Integer> integerList1 = new ArrayList<>(collection);
         List<Integer> integerList2 = new ArrayList<>(collection1);
@@ -50,7 +62,11 @@ public class CollectionUtilsImpl implements CollectionUtils {
     }
 
     @Override
-    public Collection<Integer> difference(Collection<Integer> collection, Collection<Integer> collection1) {
+    public Collection<Integer> difference(Collection<Integer> collection,
+                                          Collection<Integer> collection1) {
+        if (collection == null || collection1 == null) {
+            throw new NullPointerException("one of the collections is null");
+        }
         List<Integer> newIntegerList = new ArrayList<>();
         List<Integer> integerList1 = new ArrayList<>(collection);
         List<Integer> integerList2 = new ArrayList<>(collection1);
